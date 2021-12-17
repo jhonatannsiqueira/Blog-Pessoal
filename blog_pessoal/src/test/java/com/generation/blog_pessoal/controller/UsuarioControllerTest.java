@@ -27,6 +27,8 @@ import com.generation.blog_pessoal.service.UsuarioService;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UsuarioControllerTest {
 	
+	// Métodos elaborados pelo Instrutor
+	
 	@Autowired
 	private TestRestTemplate testRestTemplate; // Tipo um Postman dentro do Spring, usa os Verbos
 
@@ -35,7 +37,7 @@ public class UsuarioControllerTest {
 	
 	@Test
 	@Order(1)
-	@DisplayName("Cadastrar Um Usuário")
+	@DisplayName("Cadastrar 1 Usuário")
 	public void deveCriarUmUsuario() {
 
 		HttpEntity <Usuario> requisicao = new HttpEntity <Usuario>(new Usuario(0L, 
@@ -51,7 +53,7 @@ public class UsuarioControllerTest {
 	
 	@Test
 	@Order(2)
-	@DisplayName("Não deve permitir duplicação do Usuário")
+	@DisplayName("Não deve permitir DUPLICAÇÃO do Usuário")
 	public void naoDeveDuplicarUsuario() {
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, 
@@ -68,7 +70,7 @@ public class UsuarioControllerTest {
 	
 	@Test
 	@Order(3)
-	@DisplayName("Alterar um Usuário")
+	@DisplayName("Alterar 1 Usuário")
 	public void deveAtualizarUmUsuario() {
 
 		Optional<Usuario> usuarioCreate = usuarioService.cadastrarUsuario(new Usuario(0L, 
@@ -90,7 +92,7 @@ public class UsuarioControllerTest {
 
 	@Test
 	@Order(4)
-	@DisplayName("Listar todos os Usuários")
+	@DisplayName("Listar TODOS os Usuários")
 	public void deveMostrarTodosUsuarios() {
 
 		usuarioService.cadastrarUsuario(new Usuario(0L, 
